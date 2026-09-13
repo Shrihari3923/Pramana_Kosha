@@ -1,0 +1,40 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id as \"id!: uuid::Uuid\",\n                  case_id as \"case_id!: uuid::Uuid\",\n                  file_hash as \"file_hash!: String\",\n                  file_path as \"file_path!: String\"\n           FROM documents WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "case_id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "file_hash!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "file_path!: String",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "56c52a0c88a503319a39b7db69145210eed9790d2d243fb8655b833d03d3f2b1"
+}

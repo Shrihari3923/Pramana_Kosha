@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id FROM evidence_items_bridge WHERE id = $1",
+  "describe": {
+    "columns": [
+      { "ordinal": 0, "name": "id", "type_info": "Uuid" }
+    ],
+    "parameters": { "Left": ["Uuid"] },
+    "nullable": [false]
+  },
+  "hash": "3ce4e1c6d144455644c3b8b6df601551dfcffd287a8b9b1b378bf7bf1ad7a108"
+}

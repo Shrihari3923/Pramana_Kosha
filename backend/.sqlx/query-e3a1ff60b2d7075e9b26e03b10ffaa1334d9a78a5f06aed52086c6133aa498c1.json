@@ -1,0 +1,44 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id as \"id!: uuid::Uuid\",\n                  email as \"email!: String\",\n                  success as \"success!: bool\",\n                  failure_reason,\n                  attempted_at as \"attempted_at!: chrono::DateTime<chrono::Utc>\"\n           FROM login_attempts ORDER BY attempted_at DESC LIMIT 100",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "email!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "success!: bool",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 3,
+        "name": "failure_reason",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "attempted_at!: chrono::DateTime<chrono::Utc>",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "e3a1ff60b2d7075e9b26e03b10ffaa1334d9a78a5f06aed52086c6133aa498c1"
+}

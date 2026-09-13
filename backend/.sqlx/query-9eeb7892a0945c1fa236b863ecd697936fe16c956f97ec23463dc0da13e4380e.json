@@ -1,0 +1,45 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT u.id as \"id!: uuid::Uuid\",\n                  u.email as \"email!: String\",\n                  u.role as \"role!: crate::models::Role\"\n           FROM users u\n           JOIN case_assignments ca ON ca.user_id = u.id\n           WHERE ca.case_id = $1\n           ORDER BY u.email",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "email!: String",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "role!: crate::models::Role",
+        "type_info": {
+          "Custom": {
+            "name": "user_role",
+            "kind": {
+              "Enum": [
+                "investigator",
+                "supervisor",
+                "admin"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "9eeb7892a0945c1fa236b863ecd697936fe16c956f97ec23463dc0da13e4380e"
+}

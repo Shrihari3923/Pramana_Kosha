@@ -1,0 +1,40 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT c.id as \"id!: uuid::Uuid\",\n                      c.title as \"title!: String\",\n                      c.case_number as \"case_number!: String\",\n                      c.created_by as \"created_by!: uuid::Uuid\"\n               FROM cases c\n               JOIN case_assignments ca ON ca.case_id = c.id\n               WHERE ca.user_id = $1\n               ORDER BY c.created_at DESC",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "title!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "case_number!: String",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "created_by!: uuid::Uuid",
+        "type_info": "Uuid"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "50f3df7b5bd0ff887ae14293ffabf7dcdf35e35e6708b249fcfe42fe9dc7ddc3"
+}

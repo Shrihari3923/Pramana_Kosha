@@ -1,0 +1,94 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id as \"id!: uuid::Uuid\",\n                  case_id as \"case_id!: uuid::Uuid\",\n                  uploaded_by as \"uploaded_by!: uuid::Uuid\",\n                  title as \"title!: String\",\n                  doc_type as \"doc_type!: String\",\n                  description as \"description!: String\",\n                  file_path as \"file_path!: String\",\n                  file_hash as \"file_hash!: String\",\n                  version as \"version!: i32\",\n                  extracted_text as \"extracted_text!: String\",\n                  ocr_status as \"ocr_status!: String\",\n                  ocr_error,\n                  ocr_completed_at\n           FROM documents WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "case_id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "uploaded_by!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 3,
+        "name": "title!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "doc_type!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "description!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "file_path!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "file_hash!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 8,
+        "name": "version!: i32",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 9,
+        "name": "extracted_text!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 10,
+        "name": "ocr_status!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 11,
+        "name": "ocr_error",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 12,
+        "name": "ocr_completed_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "07428bef1b93e1a882a7ab62926ce0c65933f69aa8a85a288c918c30392f7f81"
+}

@@ -1,0 +1,52 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id as \"id!: uuid::Uuid\",\n                  actor_id as \"actor_id!: uuid::Uuid\",\n                  action as \"action!: String\",\n                  prev_event_hash as \"prev_event_hash!: String\",\n                  event_hash as \"event_hash!: String\",\n                  occurred_at as \"occurred_at!: chrono::DateTime<chrono::Utc>\"\n           FROM custody_events WHERE evidence_id = $1 ORDER BY seq ASC",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "actor_id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "action!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "prev_event_hash!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "event_hash!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "occurred_at!: chrono::DateTime<chrono::Utc>",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "315b4d48d217fc0bb9e6b6c32f189b785da13d05b7cb0fdeb3beffbd66db6c6f"
+}

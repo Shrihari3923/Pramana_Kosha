@@ -1,0 +1,17 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE evidence_items SET status = $1, custodian_id = $2, location = $3 WHERE id = $4",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Uuid",
+        "Text",
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "2a7b3f9709aa3962a9dd3823950068624a91962ec86b8b788e7a7f95a289f1e0"
+}

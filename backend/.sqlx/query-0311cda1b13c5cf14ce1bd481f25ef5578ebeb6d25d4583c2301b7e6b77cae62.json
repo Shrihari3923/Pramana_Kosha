@@ -1,0 +1,94 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT e.id as \"id!: uuid::Uuid\",\n                  e.case_id as \"case_id!: uuid::Uuid\",\n                  e.item_number as \"item_number!: String\",\n                  e.name as \"name!: String\",\n                  e.category as \"category!: String\",\n                  e.description as \"description!: String\",\n                  e.status as \"status!: String\",\n                  e.custodian_id as \"custodian_id!: uuid::Uuid\",\n                  u.email as \"custodian_email!: String\",\n                  e.location as \"location!: String\",\n                  e.sealed_at as \"sealed_at!: chrono::DateTime<chrono::Utc>\",\n                  e.created_at as \"created_at!: chrono::DateTime<chrono::Utc>\",\n                  COUNT(ce.id) as \"custody_event_count!\"\n        FROM evidence_items e\n        JOIN users u ON u.id = e.custodian_id\n        LEFT JOIN custody_events ce ON ce.evidence_id = e.id\n        WHERE e.id = $1\n        GROUP BY e.id, e.case_id, e.item_number, e.name, e.category,\n                 e.description, e.status, e.custodian_id, u.email,\n                 e.location, e.sealed_at, e.created_at",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "case_id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "item_number!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "name!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "category!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "description!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "status!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "custodian_id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 8,
+        "name": "custodian_email!: String",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 9,
+        "name": "location!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 10,
+        "name": "sealed_at!: chrono::DateTime<chrono::Utc>",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 11,
+        "name": "created_at!: chrono::DateTime<chrono::Utc>",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 12,
+        "name": "custody_event_count!",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      null
+    ]
+  },
+  "hash": "0311cda1b13c5cf14ce1bd481f25ef5578ebeb6d25d4583c2301b7e6b77cae62"
+}

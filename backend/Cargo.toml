@@ -1,0 +1,46 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = { version = "0.7", features = ["multipart"] }
+tokio = { version = "1", features = ["full"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["cors", "trace", "set-header", "limit"] }
+
+sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "postgres", "uuid", "chrono", "migrate"] }
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", default-features = false, features = ["json", "multipart", "rustls-tls"] }
+
+jsonwebtoken = "9"
+bcrypt = "0.15"
+
+# Ed25519 digital signatures — real cryptography, not simulated.
+# ed25519-dalek 2.x uses RFC 8032 strict verification.
+ed25519-dalek = { version = "2", features = ["rand_core"] }
+
+# AES-256-GCM for dev-mode private key encryption
+aes-gcm = "0.10"
+
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+dotenvy = "0.15"
+thiserror = "2"
+rand = "0.8"
+rand_core = { version = "0.6", features = ["getrandom"] }
+sha2 = "0.10"
+hex = "0.4"
+
+# PBKDF2 key derivation for encrypting dev private keys from server secret
+pbkdf2 = { version = "0.12", features = ["hmac"] }
+hmac = "0.12"
+
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }

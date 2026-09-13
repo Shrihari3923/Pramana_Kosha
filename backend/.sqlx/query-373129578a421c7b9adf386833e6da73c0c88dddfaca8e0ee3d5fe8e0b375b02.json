@@ -1,0 +1,57 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT rt.id as \"id!\", rt.user_id as \"user_id!\", u.email as \"email!\", u.password_hash,\n               u.role as \"role!: crate::models::Role\"\n        FROM refresh_tokens rt\n        JOIN users u ON u.id = rt.user_id\n        WHERE rt.token_hash = $1 AND rt.revoked_at IS NULL AND rt.expires_at > now()\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "user_id!",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "email!",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "password_hash",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "role!: crate::models::Role",
+        "type_info": {
+          "Custom": {
+            "name": "user_role",
+            "kind": {
+              "Enum": [
+                "investigator",
+                "supervisor",
+                "admin"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "373129578a421c7b9adf386833e6da73c0c88dddfaca8e0ee3d5fe8e0b375b02"
+}

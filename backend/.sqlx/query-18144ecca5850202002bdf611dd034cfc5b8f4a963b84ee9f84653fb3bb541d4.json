@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        DELETE FROM document_access\n        WHERE user_id = $1\n          AND document_id IN (\n              SELECT id\n              FROM documents\n              WHERE case_id = $2\n          )\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "18144ecca5850202002bdf611dd034cfc5b8f4a963b84ee9f84653fb3bb541d4"
+}

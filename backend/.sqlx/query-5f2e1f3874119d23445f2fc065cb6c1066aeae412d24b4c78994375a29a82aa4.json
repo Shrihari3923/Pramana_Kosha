@@ -1,0 +1,52 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT a.id as \"id!: uuid::Uuid\",\n                  a.actor_id as \"actor_id!: uuid::Uuid\",\n                  u.email as \"actor_email!: String\",\n                  a.action as \"action!: String\",\n                  a.document_id,\n                  a.created_at as \"created_at!: chrono::DateTime<chrono::Utc>\"\n           FROM audit_log a\n           JOIN users u ON u.id = a.actor_id\n           WHERE a.case_id = $1\n           ORDER BY a.seq ASC",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "actor_id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "actor_email!: String",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "action!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "document_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 5,
+        "name": "created_at!: chrono::DateTime<chrono::Utc>",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "5f2e1f3874119d23445f2fc065cb6c1066aeae412d24b4c78994375a29a82aa4"
+}

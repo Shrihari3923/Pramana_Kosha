@@ -1,0 +1,10 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM evidence_items_bridge WHERE id = $1",
+  "describe": {
+    "columns": [],
+    "parameters": { "Left": ["Uuid"] },
+    "nullable": []
+  },
+  "hash": "7faf0a7717d2710785d635f425e543ee8d23dddb2511a6d5b83ef3d3970ca9ec"
+}

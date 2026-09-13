@@ -1,0 +1,23 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO custody_events\n            (id, evidence_id, actor_id, prev_custodian_id, new_custodian_id, action,\n             location, notes, evidence_hash, prev_event_hash, event_hash, blockchain_tx_id, occurred_at)\n        VALUES ($1, $2, $3, NULL, $4, 'REGISTER', $5, 'Initial evidence registration', $6, $7, $8, $9, $10)\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Uuid",
+        "Uuid",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Uuid",
+        "Timestamptz"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "7381a4fe6a56762e49e9b0f36bc8a7e87441ecfba634507f890667754efcdda6"
+}

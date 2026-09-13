@@ -1,0 +1,32 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id, block_index, block_hash FROM blockchain_blocks ORDER BY block_index DESC LIMIT 1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "block_index",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "block_hash",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "e561c1accedb989faa8c82330501f25920d92ae0ae0d3554f98e5279207ccf51"
+}

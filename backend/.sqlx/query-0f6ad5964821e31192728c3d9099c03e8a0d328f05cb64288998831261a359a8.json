@@ -1,0 +1,76 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT ds.id, ds.document_id, ds.signer_id,\n                  u.email as \"signer_email!: String\",\n                  ds.document_hash, ds.signature_hex,\n                  sk.public_key_hex, sk.fingerprint,\n                  ds.signed_at, ds.blockchain_tx_id\n           FROM document_signatures ds\n           JOIN users u ON u.id = ds.signer_id\n           JOIN signing_keys sk ON sk.id = ds.signing_key_id\n           WHERE ds.document_id = $1\n           ORDER BY ds.signed_at DESC",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "document_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "signer_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 3,
+        "name": "signer_email!: String",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "document_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "signature_hex",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "public_key_hex",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "fingerprint",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 8,
+        "name": "signed_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 9,
+        "name": "blockchain_tx_id",
+        "type_info": "Uuid"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "0f6ad5964821e31192728c3d9099c03e8a0d328f05cb64288998831261a359a8"
+}

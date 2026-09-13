@@ -1,0 +1,23 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO blockchain_transactions\n            (id, block_id, tx_index, actor_id, case_id, document_id, action, payload_hash, prev_tx_hash, tx_hash, timestamp)\n        VALUES ($1, $2, 0, $3, $4, $5, $6, $7, $8, $9, $10)\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Uuid",
+        "Uuid",
+        "Uuid",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Timestamptz"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "7991e72d53b45b917ed2ba217d5776e9b8774aca1215c11f549baa206390f83f"
+}

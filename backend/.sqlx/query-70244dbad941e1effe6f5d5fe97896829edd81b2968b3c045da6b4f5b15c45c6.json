@@ -1,0 +1,22 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT event_hash as \"event_hash!: String\"\n           FROM custody_events WHERE evidence_id = $1 ORDER BY seq DESC LIMIT 1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "event_hash!: String",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "70244dbad941e1effe6f5d5fe97896829edd81b2968b3c045da6b4f5b15c45c6"
+}

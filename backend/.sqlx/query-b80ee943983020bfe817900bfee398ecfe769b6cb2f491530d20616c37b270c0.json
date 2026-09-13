@@ -1,0 +1,68 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT seq as \"seq!: i64\",\n                  id as \"id!: uuid::Uuid\",\n                  prev_hash as \"prev_hash!: String\",\n                  entry_hash as \"entry_hash!: String\",\n                  actor_id as \"actor_id!: uuid::Uuid\",\n                  action as \"action!: String\",\n                  document_id,\n                  case_id,\n                  created_at as \"created_at!: chrono::DateTime<chrono::Utc>\"\n           FROM audit_log WHERE seq < 1000000 ORDER BY seq ASC",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "seq!: i64",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 1,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "prev_hash!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "entry_hash!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "actor_id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 5,
+        "name": "action!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "document_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 7,
+        "name": "case_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 8,
+        "name": "created_at!: chrono::DateTime<chrono::Utc>",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "b80ee943983020bfe817900bfee398ecfe769b6cb2f491530d20616c37b270c0"
+}

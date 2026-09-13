@@ -1,0 +1,19 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO blockchain_blocks (id, block_index, prev_block_hash, merkle_root, block_hash, nonce, timestamp)\n        VALUES ($1, $2, $3, $4, $5, 0, $6)\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Int8",
+        "Text",
+        "Text",
+        "Text",
+        "Timestamptz"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "29c249628554b1e3f0ac4f7ecdd672e8ae6ebdf89f160071e1378f4998509ce3"
+}

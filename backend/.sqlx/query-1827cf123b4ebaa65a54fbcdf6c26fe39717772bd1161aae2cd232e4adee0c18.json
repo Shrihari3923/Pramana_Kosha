@@ -1,0 +1,58 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id, block_index, prev_block_hash, merkle_root, block_hash, nonce, timestamp FROM blockchain_blocks WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "block_index",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "prev_block_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "merkle_root",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "block_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "nonce",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 6,
+        "name": "timestamp",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "1827cf123b4ebaa65a54fbcdf6c26fe39717772bd1161aae2cd232e4adee0c18"
+}

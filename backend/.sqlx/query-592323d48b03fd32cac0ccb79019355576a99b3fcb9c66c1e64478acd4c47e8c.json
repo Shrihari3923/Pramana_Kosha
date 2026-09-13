@@ -1,0 +1,10 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM custody_events_bridge WHERE evidence_id = $1",
+  "describe": {
+    "columns": [],
+    "parameters": { "Left": ["Uuid"] },
+    "nullable": []
+  },
+  "hash": "592323d48b03fd32cac0ccb79019355576a99b3fcb9c66c1e64478acd4c47e8c"
+}

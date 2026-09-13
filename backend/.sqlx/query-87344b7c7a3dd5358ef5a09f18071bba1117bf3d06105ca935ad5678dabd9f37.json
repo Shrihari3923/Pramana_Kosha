@@ -1,0 +1,65 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT b.id, b.block_index, b.prev_block_hash, b.merkle_root, b.block_hash, b.nonce, b.timestamp,\n               COUNT(t.id) as \"transaction_count!\"\n        FROM blockchain_blocks b\n        LEFT JOIN blockchain_transactions t ON t.block_id = b.id\n        GROUP BY b.id\n        ORDER BY b.block_index DESC\n        LIMIT $1 OFFSET $2\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "block_index",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "prev_block_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "merkle_root",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "block_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "nonce",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 6,
+        "name": "timestamp",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 7,
+        "name": "transaction_count!",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int8",
+        "Int8"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      null
+    ]
+  },
+  "hash": "87344b7c7a3dd5358ef5a09f18071bba1117bf3d06105ca935ad5678dabd9f37"
+}

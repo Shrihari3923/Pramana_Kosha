@@ -1,0 +1,46 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT case_id as \"case_id!: uuid::Uuid\",\n                  name as \"name!: String\",\n                  status as \"status!: String\",\n                  custodian_id as \"custodian_id!: uuid::Uuid\",\n                  location as \"location!: String\"\n           FROM evidence_items WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "case_id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "name!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "status!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "custodian_id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 4,
+        "name": "location!: String",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "cbee067ad4302b184dc7a5fc737e9fb62776ad51dca12084b10a91fc83c34386"
+}

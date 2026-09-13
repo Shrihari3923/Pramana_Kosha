@@ -1,0 +1,22 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT COUNT(*) FROM security_events WHERE event_type IN ('AUTHZ_DENIED','AUTH_FAILURE') AND occurred_at >= $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "count",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Timestamptz"
+      ]
+    },
+    "nullable": [
+      null
+    ]
+  },
+  "hash": "fafa7a6a2ba2910bff54ebcd06980ac3cb4706c5185e3afe3f26fe1e86910d1f"
+}

@@ -1,0 +1,40 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id as \"id!: uuid::Uuid\",\n                  title as \"title!: String\",\n                  case_number as \"case_number!: String\",\n                  created_by as \"created_by!: uuid::Uuid\"\n           FROM cases WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "title!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "case_number!: String",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "created_by!: uuid::Uuid",
+        "type_info": "Uuid"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "d3327b6db7f4b37054d59878043a9c0f5388856b5a8ef156f8387315fa119445"
+}

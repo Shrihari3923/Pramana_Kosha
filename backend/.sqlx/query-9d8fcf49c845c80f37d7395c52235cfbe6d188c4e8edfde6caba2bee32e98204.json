@@ -1,0 +1,94 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT t.id, t.block_id, b.block_index, t.tx_index,\n                  t.actor_id, u.email as \"actor_email!: String\",\n                  t.case_id, t.document_id, t.action, t.payload_hash,\n                  t.prev_tx_hash, t.tx_hash, t.timestamp\n           FROM blockchain_transactions t\n           JOIN blockchain_blocks b ON b.id = t.block_id\n           JOIN users u ON u.id = t.actor_id\n           WHERE t.id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "block_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "block_index",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 3,
+        "name": "tx_index",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 4,
+        "name": "actor_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 5,
+        "name": "actor_email!: String",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 6,
+        "name": "case_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 7,
+        "name": "document_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 8,
+        "name": "action",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 9,
+        "name": "payload_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 10,
+        "name": "prev_tx_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 11,
+        "name": "tx_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 12,
+        "name": "timestamp",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "9d8fcf49c845c80f37d7395c52235cfbe6d188c4e8edfde6caba2bee32e98204"
+}

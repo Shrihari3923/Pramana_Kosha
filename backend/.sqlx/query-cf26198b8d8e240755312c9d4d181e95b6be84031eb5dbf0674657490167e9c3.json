@@ -1,0 +1,56 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id as \"id!: uuid::Uuid\",\n                  event_type as \"event_type!: String\",\n                  severity as \"severity!: String\",\n                  actor_id,\n                  resource,\n                  detail,\n                  occurred_at as \"occurred_at!: chrono::DateTime<chrono::Utc>\"\n           FROM security_events ORDER BY occurred_at DESC LIMIT 100",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id!: uuid::Uuid",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "event_type!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "severity!: String",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "actor_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 4,
+        "name": "resource",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "detail",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "occurred_at!: chrono::DateTime<chrono::Utc>",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "cf26198b8d8e240755312c9d4d181e95b6be84031eb5dbf0674657490167e9c3"
+}

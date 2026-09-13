@@ -1,0 +1,82 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT t.id, t.tx_index, t.actor_id,\n                  u.email as \"actor_email!: String\",\n                  t.case_id, t.document_id,\n                  t.action, t.payload_hash, t.prev_tx_hash, t.tx_hash, t.timestamp\n           FROM blockchain_transactions t\n           JOIN users u ON u.id = t.actor_id\n           WHERE t.block_id = $1\n           ORDER BY t.tx_index ASC",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "tx_index",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 2,
+        "name": "actor_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 3,
+        "name": "actor_email!: String",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "case_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 5,
+        "name": "document_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 6,
+        "name": "action",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "payload_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 8,
+        "name": "prev_tx_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 9,
+        "name": "tx_hash",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 10,
+        "name": "timestamp",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "cfd44d43df653be6c60912b8b0314b567678664f0f1d8b48db2f46c220cdfbbb"
+}

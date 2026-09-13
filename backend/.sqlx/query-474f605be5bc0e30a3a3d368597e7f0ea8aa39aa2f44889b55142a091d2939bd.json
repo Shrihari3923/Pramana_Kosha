@@ -1,0 +1,20 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT entry_hash as \"entry_hash!: String\" FROM audit_log_bridge ORDER BY seq DESC LIMIT 1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "entry_hash!: String",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "474f605be5bc0e30a3a3d368597e7f0ea8aa39aa2f44889b55142a091d2939bd"
+}
